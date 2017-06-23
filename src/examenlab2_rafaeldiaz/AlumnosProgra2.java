@@ -5,11 +5,14 @@
  */
 package examenlab2_rafaeldiaz;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Rafael
  */
-public class AlumnosProgra2 {
+public class AlumnosProgra2 implements Serializable{
+    static final long SerialVersionUID=999L;
     String apodo, gradoacademico, tipoarma,numcuenta;
     int edad, resistencia,poderfuego;
 
@@ -86,7 +89,7 @@ public class AlumnosProgra2 {
 
     @Override
     public String toString() {
-        return "Los_Alumnos_de_Programacion_ll{" + "apodo=" + apodo + '}';
+        return apodo;
     }
 
     

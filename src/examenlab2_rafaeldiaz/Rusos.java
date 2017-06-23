@@ -5,11 +5,14 @@
  */
 package examenlab2_rafaeldiaz;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Rafael
  */
-public class Rusos {
+public class Rusos implements Serializable{
+    static final long SerialVersionUID=777L;
     String nombre, rango, arma,ID;
     int edad, resistencia,poderfuego;
 
@@ -87,7 +90,7 @@ public class Rusos {
 
     @Override
     public String toString() {
-        return "Rusos{" + "nombre=" + nombre + '}';
+        return nombre;
     }
 
 }

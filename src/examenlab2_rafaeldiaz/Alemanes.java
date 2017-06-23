@@ -5,11 +5,14 @@
  */
 package examenlab2_rafaeldiaz;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Rafael
  */
-public class Alemanes {
+public class Alemanes implements Serializable{
+    static final long SerialVersionUID=888L;
     String alias, casta, tipoarma;
     int edad, resistencia, poderfuego;
 
@@ -80,6 +83,8 @@ public class Alemanes {
 
     @Override
     public String toString() {
-        return "Alemanes{" + "alias=" + alias + ", casta=" + casta + ", tipoarma=" + tipoarma + ", edad=" + edad + ", resistencia=" + resistencia + '}';
+        return alias;
     }
+
+    
 }

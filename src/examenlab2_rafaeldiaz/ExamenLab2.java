@@ -7,6 +7,8 @@ package examenlab2_rafaeldiaz;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -34,6 +36,9 @@ public class ExamenLab2 extends javax.swing.JFrame {
         armas_Rusos = new javax.swing.ButtonGroup();
         armas_Alemanes = new javax.swing.ButtonGroup();
         armas_Alumnos = new javax.swing.ButtonGroup();
+        Popup = new javax.swing.JPopupMenu();
+        Modificar = new javax.swing.JMenuItem();
+        Eliminar = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,8 +81,17 @@ public class ExamenLab2 extends javax.swing.JFrame {
         laptops = new javax.swing.JRadioButton();
         GuardarAlumnos = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        arbol = new javax.swing.JTree();
+        CargarAlArbol = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
+
+        Modificar.setText("Modificar");
+        Popup.add(Modificar);
+
+        Eliminar.setText("Eliminar");
+        Popup.add(Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -354,15 +368,41 @@ public class ExamenLab2 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Alumnos", jPanel2);
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbolMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(arbol);
+
+        CargarAlArbol.setText("Cargar");
+        CargarAlArbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CargarAlArbolMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 912, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(CargarAlArbol)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(414, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CargarAlArbol)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Jtree", jPanel4);
@@ -390,10 +430,10 @@ public class ExamenLab2 extends javax.swing.JFrame {
     private void GuardarRusosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarRusosMouseClicked
         String nombre = nrusos.getText();
         String rango = ranrusos.getText();
-        String arma="";
+        String arma = "";
         String id = irusos.getText();
         int edad = Integer.parseInt(erusos.getText());
-        int res = edad*8;
+        int res = edad * 8;
         int poder = 0;
         if (ak47.isSelected()) {
             arma = "AK47";
@@ -407,24 +447,30 @@ public class ExamenLab2 extends javax.swing.JFrame {
             arma = "RPG7";
             poder = 57;
         }
-        if ((edad>18)&&(!arma.equals("RPG7"))) {
-            rusos.add(new Rusos(nombre,rango,arma,id,edad,res,poder));
-        }else if((edad<25)&&(arma.equals("RPG7"))){
-            JOptionPane.showMessageDialog(this,"Tiene que ser mayor de 25 años para usar RPG-7");
-        }else{
-            JOptionPane.showMessageDialog(this,"Tiene que ser mayor de 18 años");
+        if ((edad > 18) && (!arma.equals("RPG7"))) {
+            Rusos r = new Rusos(nombre, rango, arma, id, edad, res, poder);
+            rusos.add(r);
+            adminRusos ar = new adminRusos("./rusos.cbm");
+            ar.cargarArchivo();
+            ar.setRusos(r);
+            ar.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Ruso guardado exitosamente");
+
+        } else if ((edad < 25) && (arma.equals("RPG7"))) {
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor de 25 años para usar RPG-7");
+        } else {
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor de 18 años");
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_GuardarRusosMouseClicked
 
     private void GuardarAlemanesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlemanesMouseClicked
         String ali = alias.getText();
-        String cast= casta.getText();
-        String arma ="";
-        int edad= Integer.parseInt(ealemanes.getText());
-        int res = edad*8;
+        String cast = casta.getText();
+        String arma = "";
+        int edad = Integer.parseInt(ealemanes.getText());
+        int res = edad * 8;
         int poder = 0;
         if (p38.isSelected()) {
             arma = "P38";
@@ -438,12 +484,21 @@ public class ExamenLab2 extends javax.swing.JFrame {
             arma = "MG42";
             poder = 32;
         }
+
+        if (edad > 0) {
             
-            if (edad>0) {
-            alemanes.add(new Alemanes(ali,cast,arma,edad,res,poder));
-        }else{
-              JOptionPane.showMessageDialog(this, "No puede mandar un feto a la batalla");
-            }
+            
+            Alemanes a = new Alemanes(ali, cast, arma, edad, res, poder);
+            alemanes.add(a);
+            
+            adminAlemanes aa = new adminAlemanes("./alemanes.cbm");
+            aa.cargarArchivo();
+            aa.setAlemanes(a);
+            aa.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Aleman guardado exitosamente");
+        } else {
+            JOptionPane.showMessageDialog(this, "No puede mandar un feto a la batalla");
+        }
     }//GEN-LAST:event_GuardarAlemanesMouseClicked
 
     private void GuardarAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlumnosMouseClicked
@@ -452,7 +507,7 @@ public class ExamenLab2 extends javax.swing.JFrame {
         String arma = "";
         String numcuenta = cuenta.getText();
         int edad = Integer.parseInt(ealumnos.getText());
-        int res = edad*8;
+        int res = edad * 8;
         int poder = 0;
         if (discos.isSelected()) {
             arma = "Discos Duros";
@@ -466,13 +521,87 @@ public class ExamenLab2 extends javax.swing.JFrame {
             arma = "Laptops";
             poder = 76;
         }
+
+        if (edad > 16) {
+            AlumnosProgra2 ap2 = new AlumnosProgra2(ap, gradoa, arma, numcuenta, edad, res, poder);
+            alumnos.add(ap2);
+            adminAlumnos aa = new adminAlumnos("./alumnos.cbm");
+            aa.cargarArchivo();
+            aa.setAlumnosProgra2(ap2);
+            aa.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Alumno guardado exitosamente");
             
-            if (edad>16) {
-            alumnos.add(new AlumnosProgra2(ap,gradoa,arma,numcuenta,edad,res,poder));
-            }else{
-              JOptionPane.showMessageDialog(this, "Tiene que ser mayor a 16 años");
-            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor a 16 años");
+        }
     }//GEN-LAST:event_GuardarAlumnosMouseClicked
+
+    private void CargarAlArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarAlArbolMouseClicked
+        DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modelo.getRoot();
+        raiz.removeAllChildren();
+        modelo.reload();
+        adminRusos ar = new adminRusos("./rusos.cbm");
+        adminAlemanes aa = new adminAlemanes("./alemanes.cbm");
+        adminAlumnos al = new adminAlumnos("./alumnos.cbm");
+        ar.cargarArchivo();
+        aa.cargarArchivo();
+        al.cargarArchivo();
+        DefaultMutableTreeNode rus = new DefaultMutableTreeNode("Rusos");
+        DefaultMutableTreeNode ale = new DefaultMutableTreeNode("Alemanes");
+        DefaultMutableTreeNode alu = new DefaultMutableTreeNode("Alumnos de Progra 2");
+        
+
+        for (int i = 0; i < ar.getRusos().size(); i++) {
+        DefaultMutableTreeNode rusos1 = new DefaultMutableTreeNode(ar.getRusos().get(i));
+        rus.add(rusos1);
+        raiz.add(rus);
+        }
+        
+        for (int i = 0; i < aa.getAlemanes().size(); i++) {
+        DefaultMutableTreeNode alem = new DefaultMutableTreeNode(aa.getAlemanes().get(i));
+        ale.add(alem);
+        raiz.add(ale);
+        }
+        
+        for (int i = 0; i < al.getAlumnos().size(); i++) {
+        DefaultMutableTreeNode alum = new DefaultMutableTreeNode(al.getAlumnos().get(i));
+        alu.add(alum);
+        raiz.add(alu);
+        }
+               modelo.reload();
+        
+    }//GEN-LAST:event_CargarAlArbolMouseClicked
+
+    private void arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolMouseClicked
+        if (evt.isMetaDown()) {
+            //seleccionar un nodo con click derecho
+            DefaultMutableTreeNode nodo_seleccionado;
+            Rusos ruso_seleccionado;
+            Alemanes aleman_seleccionado;
+            AlumnosProgra2 alum_seleccionado;
+            int row = arbol.getClosestRowForLocation(
+                    evt.getX(), evt.getY());
+            arbol.setSelectionRow(row);
+            Object v1= arbol.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject()instanceof Rusos) {
+                ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
+                Popup.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+            if (nodo_seleccionado.getUserObject()instanceof Alemanes) {
+                aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
+                Popup.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+            if (nodo_seleccionado.getUserObject()instanceof AlumnosProgra2) {
+                alum_seleccionado= (AlumnosProgra2) nodo_seleccionado.getUserObject();
+                Popup.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_arbolMouseClicked
 
     /**
      * @param args the command line arguments
@@ -510,12 +639,17 @@ public class ExamenLab2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CargarAlArbol;
+    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JButton GuardarAlemanes;
     private javax.swing.JButton GuardarAlumnos;
     private javax.swing.JButton GuardarRusos;
+    private javax.swing.JMenuItem Modificar;
+    private javax.swing.JPopupMenu Popup;
     private javax.swing.JRadioButton ak47;
     private javax.swing.JTextField alias;
     private javax.swing.JTextField apodo;
+    private javax.swing.JTree arbol;
     private javax.swing.ButtonGroup armas_Alemanes;
     private javax.swing.ButtonGroup armas_Alumnos;
     private javax.swing.ButtonGroup armas_Rusos;
@@ -546,6 +680,7 @@ public class ExamenLab2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton laptops;
     private javax.swing.JRadioButton mg42;
@@ -558,7 +693,7 @@ public class ExamenLab2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton wii;
     // End of variables declaration//GEN-END:variables
 ArrayList rusos = new ArrayList();
-ArrayList alemanes = new ArrayList();
-ArrayList alumnos = new ArrayList();
-ArrayList caidos = new ArrayList();
+    ArrayList alemanes = new ArrayList();
+    ArrayList alumnos = new ArrayList();
+    ArrayList caidos = new ArrayList();
 }

@@ -997,37 +997,42 @@ public class ExamenLab2 extends javax.swing.JFrame {
             modelo.reload();
             nodo_seleccionado =  v1;
             if (nodo_seleccionado.getUserObject() instanceof Rusos) {
+                ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
+                nrusos1.setText(ruso_seleccionado.getNombre());
+                irusos1.setText(ruso_seleccionado.getID());
+                erusos1.setText(Integer.toString(ruso_seleccionado.getEdad()));
+                ranrusos1.setText(ruso_seleccionado.getRango());
                 ModRusos.pack();
                 ModRusos.setLocationRelativeTo(this);
                 ModRusos.setModal(true);
                 ModRusos.setVisible(true);
-                ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
-                for (int i = 0; i < ar.getRusos().size(); i++) {
-                    if (ar.getRusos().get(i).getNombre().equals(ruso_seleccionado.getNombre())) {
-                        nrusos1.setText(ar.getRusos().get(i).getNombre());
-                    }
-                    
-                }
-                
-                
-                
+           
                 
                 modelo.reload();
             }
             if (nodo_seleccionado.getUserObject()instanceof Alemanes) {
+                aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
+                alias1.setText(aleman_seleccionado.getAlias());
+                casta1.setText(aleman_seleccionado.getCasta());
+                ealemanes1.setText(Integer.toString(aleman_seleccionado.getEdad()));
                 ModAlemanes.pack();
                 ModAlemanes.setModal(true);
                 ModAlemanes.setLocationRelativeTo(this);
                 ModAlemanes.setVisible(true);
-                aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
+                
                 
             }
             if (nodo_seleccionado.getUserObject()instanceof AlumnosProgra2) {
+                alum_seleccionado= (AlumnosProgra2) nodo_seleccionado.getUserObject();
+                apodo1.setText(alum_seleccionado.getApodo());
+                ealumnos1.setText(Integer.toString(alum_seleccionado.getEdad()));
+                cuenta1.setText(alum_seleccionado.getNumcuenta());
+                grado1.setText(alum_seleccionado.getGradoacademico());
                 ModAlumnos.pack();
                 ModAlumnos.setModal(true);
                 ModAlumnos.setLocationRelativeTo(this);
                 ModAlumnos.setVisible(true);
-                alum_seleccionado= (AlumnosProgra2) nodo_seleccionado.getUserObject();
+                
                 
             }
     }//GEN-LAST:event_ModificarActionPerformed
@@ -1096,24 +1101,24 @@ public class ExamenLab2 extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void ModificarRusosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarRusosMouseClicked
-        DefaultMutableTreeNode nodo_seleccionado;
-        adminRusos ar = new adminRusos("./rusos.cbm");
+        try {
+            adminRusos ar = new adminRusos("./rusos.cbm");
+        
+       DefaultMutableTreeNode nodo_seleccionado;
+        DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
+        ar.cargarArchivo();
+        nodo_seleccionado = v1;
+        DefaultTreeModel m = (DefaultTreeModel)arbol.getModel();
+        
+        
         DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
             Rusos ruso_seleccionado;
-            
-            DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
-            
-            nodo_seleccionado =  v1;
-            
+           
+      
+            if (nodo_seleccionado.getUserObject() instanceof Rusos) {
                 ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
-                
-                
-                ar.cargarArchivo();
                 for (int i = 0; i < ar.getRusos().size(); i++) {
                     if (ar.getRusos().get(i).getNombre().equals(ruso_seleccionado.getNombre())) {
-                        
-                        
-                        
                         ar.getRusos().get(i).setNombre(nrusos1.getText());
                         ar.getRusos().get(i).setID(irusos1.getText());
                         ar.getRusos().get(i).setEdad(Integer.parseInt(erusos1.getText()));
@@ -1139,30 +1144,35 @@ public class ExamenLab2 extends javax.swing.JFrame {
                             ar.getRusos().get(i).setArma(arma);
                             ar.getRusos().get(i).setPoderfuego(poder);
                         }
+                        ar.escribirArchivo();
+                        modelo.reload();
                     }
                     
                 }
+             
+                
+            }
                 ar.escribirArchivo();
                 modelo.reload();
-            
-            
+        } catch (Exception e) {}
+        
         
     }//GEN-LAST:event_ModificarRusosMouseClicked
 
     private void rpg71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpg71ActionPerformed
-        // TODO add your handling code here:
+        
+
     }//GEN-LAST:event_rpg71ActionPerformed
 
     private void GuardarAlemanes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlemanes1MouseClicked
-        DefaultMutableTreeNode nodo_seleccionado;
+        try {
+          DefaultMutableTreeNode nodo_seleccionado;
         
         adminAlemanes al = new adminAlemanes("./alemanes.cbm");
         DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
             Alemanes aleman_seleccionado;
-            
-            DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
-            
-            nodo_seleccionado =  v1;
+            Object v1= arbol.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
             
                 aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
                 al.cargarArchivo();
@@ -1197,11 +1207,15 @@ public class ExamenLab2 extends javax.swing.JFrame {
                     
                 }
                 al.escribirArchivo();
-                modelo.reload();
+                modelo.reload();  
+        } catch (Exception e) {}
+        
+        
     }//GEN-LAST:event_GuardarAlemanes1MouseClicked
 
     private void GuardarAlumnos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlumnos1MouseClicked
-           DefaultMutableTreeNode nodo_seleccionado;
+        try {
+          DefaultMutableTreeNode nodo_seleccionado;
         
         adminAlumnos aa = new adminAlumnos("./alumnos.cbm");
         DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
@@ -1246,7 +1260,12 @@ public class ExamenLab2 extends javax.swing.JFrame {
                     
                 }
                 aa.escribirArchivo();
-                modelo.reload();
+                modelo.reload();  
+        } catch (Exception e) {
+        }
+  
+        
+        
         
     }//GEN-LAST:event_GuardarAlumnos1MouseClicked
 

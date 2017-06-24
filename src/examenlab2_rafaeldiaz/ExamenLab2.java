@@ -6,6 +6,9 @@
 package examenlab2_rafaeldiaz;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -39,6 +42,46 @@ public class ExamenLab2 extends javax.swing.JFrame {
         Popup = new javax.swing.JPopupMenu();
         Modificar = new javax.swing.JMenuItem();
         Eliminar = new javax.swing.JMenuItem();
+        ModRusos = new javax.swing.JDialog();
+        erusos1 = new javax.swing.JTextField();
+        ak471 = new javax.swing.JRadioButton();
+        ranrusos1 = new javax.swing.JTextField();
+        revolvernavant1 = new javax.swing.JRadioButton();
+        rpg71 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        nrusos1 = new javax.swing.JTextField();
+        ModificarRusos = new javax.swing.JButton();
+        irusos1 = new javax.swing.JTextField();
+        ModAlemanes = new javax.swing.JDialog();
+        jLabel21 = new javax.swing.JLabel();
+        mp401 = new javax.swing.JRadioButton();
+        mg421 = new javax.swing.JRadioButton();
+        casta1 = new javax.swing.JTextField();
+        p381 = new javax.swing.JRadioButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        GuardarAlemanes1 = new javax.swing.JButton();
+        alias1 = new javax.swing.JTextField();
+        ealemanes1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        ModAlumnos = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        GuardarAlumnos1 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        apodo1 = new javax.swing.JTextField();
+        cuenta1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        grado1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        discos1 = new javax.swing.JRadioButton();
+        ealumnos1 = new javax.swing.JTextField();
+        wii1 = new javax.swing.JRadioButton();
+        laptops1 = new javax.swing.JRadioButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -84,14 +127,314 @@ public class ExamenLab2 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         arbol = new javax.swing.JTree();
         CargarAlArbol = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        ganador = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         Modificar.setText("Modificar");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
         Popup.add(Modificar);
 
         Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
         Popup.add(Eliminar);
+
+        armas_Rusos.add(ak471);
+        ak471.setText("AK-47");
+
+        armas_Rusos.add(revolvernavant1);
+        revolvernavant1.setText("Revolver Navant");
+
+        armas_Rusos.add(rpg71);
+        rpg71.setText("RPG-7");
+        rpg71.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rpg71ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("ID");
+
+        jLabel8.setText("Edad");
+
+        jLabel14.setText("Rango");
+
+        jLabel19.setText("Nombre");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel20.setText("RUSOS");
+
+        ModificarRusos.setText("Guardar");
+        ModificarRusos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModificarRusosMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ModRusosLayout = new javax.swing.GroupLayout(ModRusos.getContentPane());
+        ModRusos.getContentPane().setLayout(ModRusosLayout);
+        ModRusosLayout.setHorizontalGroup(
+            ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModRusosLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel14))
+                .addGap(32, 32, 32)
+                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModRusosLayout.createSequentialGroup()
+                        .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(erusos1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ranrusos1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(231, 362, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModRusosLayout.createSequentialGroup()
+                        .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ModRusosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(ModificarRusos, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ModRusosLayout.createSequentialGroup()
+                                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nrusos1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(irusos1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(revolvernavant1)
+                                    .addComponent(ak471)
+                                    .addComponent(rpg71))))
+                        .addGap(102, 102, 102))))
+            .addGroup(ModRusosLayout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(jLabel20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ModRusosLayout.setVerticalGroup(
+            ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModRusosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModRusosLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(nrusos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(irusos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
+                    .addGroup(ModRusosLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(ak471)
+                        .addGap(18, 18, 18)
+                        .addComponent(revolvernavant1)
+                        .addGap(18, 18, 18)
+                        .addComponent(rpg71)))
+                .addGap(21, 21, 21)
+                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(erusos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(66, 66, 66)
+                .addGroup(ModRusosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ranrusos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(18, 18, 18)
+                .addComponent(ModificarRusos, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addGap(41, 41, 41))
+        );
+
+        jLabel21.setText("Casta");
+
+        armas_Alemanes.add(mp401);
+        mp401.setText("Subfusiles MP 40");
+
+        armas_Alemanes.add(mg421);
+        mg421.setText("Ametralladora MG42");
+
+        armas_Alemanes.add(p381);
+        p381.setText("Pistolas Walther P38");
+
+        jLabel22.setText("Alias");
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel23.setText("ALEMANES");
+
+        GuardarAlemanes1.setText("Guardar");
+        GuardarAlemanes1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GuardarAlemanes1MouseClicked(evt);
+            }
+        });
+
+        jLabel24.setText("Edad");
+
+        javax.swing.GroupLayout ModAlemanesLayout = new javax.swing.GroupLayout(ModAlemanes.getContentPane());
+        ModAlemanes.getContentPane().setLayout(ModAlemanesLayout);
+        ModAlemanesLayout.setHorizontalGroup(
+            ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModAlemanesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(GuardarAlemanes1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168))
+            .addGroup(ModAlemanesLayout.createSequentialGroup()
+                .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModAlemanesLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel21))
+                        .addGap(58, 58, 58)
+                        .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(casta1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModAlemanesLayout.createSequentialGroup()
+                                .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(alias1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ealemanes1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                                .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mg421)
+                                    .addComponent(mp401)
+                                    .addComponent(p381)))))
+                    .addGroup(ModAlemanesLayout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(jLabel23)))
+                .addGap(96, 96, 96))
+        );
+        ModAlemanesLayout.setVerticalGroup(
+            ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModAlemanesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModAlemanesLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel22)
+                            .addComponent(alias1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)
+                        .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ealemanes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24)))
+                    .addGroup(ModAlemanesLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(mp401)
+                        .addGap(18, 18, 18)
+                        .addComponent(mg421)
+                        .addGap(18, 18, 18)
+                        .addComponent(p381)))
+                .addGap(16, 16, 16)
+                .addGroup(ModAlemanesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(casta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addGap(104, 104, 104)
+                .addComponent(GuardarAlemanes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(60, 60, 60))
+        );
+
+        jLabel25.setText("Apodo");
+
+        GuardarAlumnos1.setText("Guardar");
+        GuardarAlumnos1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GuardarAlumnos1MouseClicked(evt);
+            }
+        });
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel26.setText("Los Alumnos de Programacion ll");
+
+        jLabel27.setText("Numero de Cuenta");
+
+        jLabel28.setText("Grado Academico");
+
+        jLabel29.setText("Edad");
+
+        armas_Alumnos.add(discos1);
+        discos1.setText("Discos Duros");
+
+        armas_Alumnos.add(wii1);
+        wii1.setText("Controles de Wii");
+
+        armas_Alumnos.add(laptops1);
+        laptops1.setText("Laptops");
+
+        javax.swing.GroupLayout ModAlumnosLayout = new javax.swing.GroupLayout(ModAlumnos.getContentPane());
+        ModAlumnos.getContentPane().setLayout(ModAlumnosLayout);
+        ModAlumnosLayout.setHorizontalGroup(
+            ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModAlumnosLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(ModAlumnosLayout.createSequentialGroup()
+                        .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel29))
+                        .addGap(32, 32, 32)
+                        .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(apodo1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ealumnos1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(wii1)
+                            .addComponent(discos1)
+                            .addComponent(laptops1)
+                            .addGroup(ModAlumnosLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(32, 32, 32)
+                                .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(GuardarAlumnos1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(grado1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(ModAlumnosLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel26)))
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        ModAlumnosLayout.setVerticalGroup(
+            ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModAlumnosLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel26)
+                .addGap(58, 58, 58)
+                .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(apodo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(grado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addGap(47, 47, 47)
+                .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModAlumnosLayout.createSequentialGroup()
+                        .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27))
+                        .addGap(48, 48, 48)
+                        .addGroup(ModAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ealumnos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29)))
+                    .addGroup(ModAlumnosLayout.createSequentialGroup()
+                        .addComponent(discos1)
+                        .addGap(18, 18, 18)
+                        .addComponent(wii1)
+                        .addGap(18, 18, 18)
+                        .addComponent(laptops1)))
+                .addGap(80, 80, 80)
+                .addComponent(GuardarAlumnos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(55, 55, 55))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -407,6 +750,45 @@ public class ExamenLab2 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Jtree", jPanel4);
 
+        jButton1.setText("Iniciar Simulacion");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jLabel30.setText("Ganador");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(329, 329, 329)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jLabel30)
+                        .addGap(29, 29, 29)
+                        .addComponent(ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(417, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ganador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addContainerGap(270, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Simulacion", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -575,7 +957,6 @@ public class ExamenLab2 extends javax.swing.JFrame {
 
     private void arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolMouseClicked
         if (evt.isMetaDown()) {
-            //seleccionar un nodo con click derecho
             DefaultMutableTreeNode nodo_seleccionado;
             Rusos ruso_seleccionado;
             Alemanes aleman_seleccionado;
@@ -602,6 +983,288 @@ public class ExamenLab2 extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_arbolMouseClicked
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        DefaultMutableTreeNode nodo_seleccionado;
+        adminRusos ar = new adminRusos("./rusos.cbm");
+        DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
+            Rusos ruso_seleccionado;
+            Alemanes aleman_seleccionado;
+            AlumnosProgra2 alum_seleccionado;
+            
+            DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
+            ar.cargarArchivo();
+            modelo.reload();
+            nodo_seleccionado =  v1;
+            if (nodo_seleccionado.getUserObject() instanceof Rusos) {
+                ModRusos.pack();
+                ModRusos.setLocationRelativeTo(this);
+                ModRusos.setModal(true);
+                ModRusos.setVisible(true);
+                ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
+                for (int i = 0; i < ar.getRusos().size(); i++) {
+                    if (ar.getRusos().get(i).getNombre().equals(ruso_seleccionado.getNombre())) {
+                        nrusos1.setText(ar.getRusos().get(i).getNombre());
+                    }
+                    
+                }
+                
+                
+                
+                
+                modelo.reload();
+            }
+            if (nodo_seleccionado.getUserObject()instanceof Alemanes) {
+                ModAlemanes.pack();
+                ModAlemanes.setModal(true);
+                ModAlemanes.setLocationRelativeTo(this);
+                ModAlemanes.setVisible(true);
+                aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
+                
+            }
+            if (nodo_seleccionado.getUserObject()instanceof AlumnosProgra2) {
+                ModAlumnos.pack();
+                ModAlumnos.setModal(true);
+                ModAlumnos.setLocationRelativeTo(this);
+                ModAlumnos.setVisible(true);
+                alum_seleccionado= (AlumnosProgra2) nodo_seleccionado.getUserObject();
+                
+            }
+    }//GEN-LAST:event_ModificarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        DefaultMutableTreeNode nodo_seleccionado;
+        Object v1= arbol.getSelectionPath().getLastPathComponent();
+        nodo_seleccionado = (DefaultMutableTreeNode) v1;
+        DefaultTreeModel m = (DefaultTreeModel)arbol.getModel();
+        
+        adminRusos ar = new adminRusos("./rusos.cbm");
+        adminAlemanes al = new adminAlemanes("./alemanes.cbm");
+        adminAlumnos aa = new adminAlumnos("./alumnos.cbm");
+        DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
+            Rusos ruso_seleccionado;
+            Alemanes aleman_seleccionado;
+            AlumnosProgra2 alum_seleccionado;
+      
+            ar.cargarArchivo();
+           
+            if (nodo_seleccionado.getUserObject() instanceof Rusos) {
+                ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
+                for (int i = 0; i < ar.getRusos().size(); i++) {
+                    if (ar.getRusos().get(i).getNombre().equals(ruso_seleccionado.getNombre())) {
+                        ar.getRusos().remove(i);
+                        ar.escribirArchivo();
+                        modelo.reload();
+                    }
+                    
+                }
+             
+                
+            }
+            al.cargarArchivo();
+            if (nodo_seleccionado.getUserObject()instanceof Alemanes) {
+                aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
+                for (int i = 0; i < al.getAlemanes().size(); i++) {
+                    if (al.getAlemanes().get(i).getAlias().equals(aleman_seleccionado.getAlias())) {
+                        al.getAlemanes().remove(i);
+                        al.escribirArchivo();
+                        modelo.reload();
+                    }
+                    
+                }
+                
+                
+                
+            }
+            aa.cargarArchivo();
+            if (nodo_seleccionado.getUserObject()instanceof AlumnosProgra2) {
+                
+                alum_seleccionado= (AlumnosProgra2) nodo_seleccionado.getUserObject();
+                for (int i = 0; i < aa.getAlumnos().size(); i++) {
+                    if (aa.getAlumnos().get(i).getApodo().equals(alum_seleccionado.getApodo())) {
+                        aa.getAlumnos().remove(i);
+                        aa.escribirArchivo();
+                modelo.reload();
+                    }
+                    
+                }
+                
+                
+            }
+            //m.removeNodeFromParent(nodo_seleccionado);
+        
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    private void ModificarRusosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarRusosMouseClicked
+        DefaultMutableTreeNode nodo_seleccionado;
+        adminRusos ar = new adminRusos("./rusos.cbm");
+        DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
+            Rusos ruso_seleccionado;
+            
+            DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
+            
+            nodo_seleccionado =  v1;
+            
+                ruso_seleccionado= (Rusos) nodo_seleccionado.getUserObject();
+                
+                
+                ar.cargarArchivo();
+                for (int i = 0; i < ar.getRusos().size(); i++) {
+                    if (ar.getRusos().get(i).getNombre().equals(ruso_seleccionado.getNombre())) {
+                        
+                        
+                        
+                        ar.getRusos().get(i).setNombre(nrusos1.getText());
+                        ar.getRusos().get(i).setID(irusos1.getText());
+                        ar.getRusos().get(i).setEdad(Integer.parseInt(erusos1.getText()));
+                        ar.getRusos().get(i).setRango(ranrusos1.getText());
+                        ar.getRusos().get(i).setResistencia(Integer.parseInt(erusos1.getText())*8);
+                        String arma="";
+                        int poder =0;
+                        if (ak471.isSelected()) {
+                            arma="AK47";
+                            poder = 27;
+                            ar.getRusos().get(i).setArma(arma);
+                            ar.getRusos().get(i).setPoderfuego(poder);
+                        }
+                        if (revolvernavant1.isSelected()) {
+                            arma = "Revolver Navant";
+                            poder = 13;
+                            ar.getRusos().get(i).setArma(arma);
+                            ar.getRusos().get(i).setPoderfuego(poder);
+                        }
+                        if (rpg71.isSelected()) {
+                            arma = "RPG-7";
+                            poder = 57;
+                            ar.getRusos().get(i).setArma(arma);
+                            ar.getRusos().get(i).setPoderfuego(poder);
+                        }
+                    }
+                    
+                }
+                ar.escribirArchivo();
+                modelo.reload();
+            
+            
+        
+    }//GEN-LAST:event_ModificarRusosMouseClicked
+
+    private void rpg71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpg71ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rpg71ActionPerformed
+
+    private void GuardarAlemanes1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlemanes1MouseClicked
+        DefaultMutableTreeNode nodo_seleccionado;
+        
+        adminAlemanes al = new adminAlemanes("./alemanes.cbm");
+        DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
+            Alemanes aleman_seleccionado;
+            
+            DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
+            
+            nodo_seleccionado =  v1;
+            
+                aleman_seleccionado= (Alemanes) nodo_seleccionado.getUserObject();
+                al.cargarArchivo();
+                for (int i = 0; i < al.getAlemanes().size(); i++) {
+                    if (al.getAlemanes().get(i).getAlias().equals(aleman_seleccionado.getAlias())) {
+                        
+                        al.getAlemanes().get(i).setAlias(alias1.getText());
+                        al.getAlemanes().get(i).setCasta(casta1.getText());
+                        al.getAlemanes().get(i).setEdad(Integer.parseInt(ealemanes1.getText()));
+                        al.getAlemanes().get(i).setResistencia(Integer.parseInt(ealemanes1.getText())*8);
+                        String arma="";
+                        int poder =0;
+                        if (mp401.isSelected()) {
+                            arma="MP-40";
+                            poder = 25;
+                            al.getAlemanes().get(i).setTipoarma(arma);
+                            al.getAlemanes().get(i).setPoderfuego(poder);
+                        }
+                        if (mg421.isSelected()) {
+                            arma = "MG42";
+                            poder = 32;
+                            al.getAlemanes().get(i).setTipoarma(arma);
+                            al.getAlemanes().get(i).setPoderfuego(poder);
+                        }
+                        if (p381.isSelected()) {
+                            arma = "P38";
+                            poder = 11;
+                            al.getAlemanes().get(i).setTipoarma(arma);
+                            al.getAlemanes().get(i).setPoderfuego(poder);
+                        }
+                    }
+                    
+                }
+                al.escribirArchivo();
+                modelo.reload();
+    }//GEN-LAST:event_GuardarAlemanes1MouseClicked
+
+    private void GuardarAlumnos1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlumnos1MouseClicked
+           DefaultMutableTreeNode nodo_seleccionado;
+        
+        adminAlumnos aa = new adminAlumnos("./alumnos.cbm");
+        DefaultTreeModel modelo = (DefaultTreeModel)arbol.getModel();
+            AlumnosProgra2 alumno_seleccionado;
+            
+            DefaultMutableTreeNode v1= (DefaultMutableTreeNode) arbol.getSelectionPath().getLastPathComponent();
+            
+            nodo_seleccionado =  v1;
+            
+                alumno_seleccionado= (AlumnosProgra2) nodo_seleccionado.getUserObject();
+                aa.cargarArchivo();
+                for (int i = 0; i < aa.getAlumnos().size(); i++) {
+                    if (aa.getAlumnos().get(i).getApodo().equals(alumno_seleccionado.getApodo())) {
+                        
+                        aa.getAlumnos().get(i).setApodo(apodo1.getText());
+                        aa.getAlumnos().get(i).setEdad(Integer.parseInt(ealumnos1.getText()));
+                        aa.getAlumnos().get(i).setGradoacademico(grado1.getText());
+                        aa.getAlumnos().get(i).setNumcuenta(cuenta1.getText());
+         
+                        String arma="";
+                        int poder =0;
+                        aa.getAlumnos().get(i).setResistencia(Integer.parseInt(ealumnos1.getText())*8);
+                        if (discos1.isSelected()) {
+                            arma="Discos Duros";
+                            poder = 23;
+                            aa.getAlumnos().get(i).setTipoarma(arma);
+                            aa.getAlumnos().get(i).setPoderfuego(poder);
+                        }
+                        if (wii1.isSelected()) {
+                            arma = "Controles de Wii";
+                            poder = 47;
+                            aa.getAlumnos().get(i).setTipoarma(arma);
+                            aa.getAlumnos().get(i).setPoderfuego(poder);
+                        }
+                        if (laptops1.isSelected()) {
+                            arma = "Laptops";
+                            poder = 76;
+                            aa.getAlumnos().get(i).setTipoarma(arma);
+                            aa.getAlumnos().get(i).setPoderfuego(poder);
+                        }
+                    }
+                    
+                }
+                aa.escribirArchivo();
+                modelo.reload();
+        
+    }//GEN-LAST:event_GuardarAlumnos1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Random r = new Random();
+        //Yo se que esto no cuenta pero me parecio necesario jaja
+        int g = 1+r.nextInt(3);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {}
+        if (g==1) {
+            ganador.setText("♦♦RUSOS♦♦");
+        }else if(g==2){
+            ganador.setText("☻☻ALEMANES☻☻");
+        }else{
+            ganador.setText("☺☺ALUMNOS☺☺");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -642,58 +1305,103 @@ public class ExamenLab2 extends javax.swing.JFrame {
     private javax.swing.JButton CargarAlArbol;
     private javax.swing.JMenuItem Eliminar;
     private javax.swing.JButton GuardarAlemanes;
+    private javax.swing.JButton GuardarAlemanes1;
     private javax.swing.JButton GuardarAlumnos;
+    private javax.swing.JButton GuardarAlumnos1;
     private javax.swing.JButton GuardarRusos;
+    private javax.swing.JDialog ModAlemanes;
+    private javax.swing.JDialog ModAlumnos;
+    private javax.swing.JDialog ModRusos;
     private javax.swing.JMenuItem Modificar;
+    private javax.swing.JButton ModificarRusos;
     private javax.swing.JPopupMenu Popup;
     private javax.swing.JRadioButton ak47;
+    private javax.swing.JRadioButton ak471;
     private javax.swing.JTextField alias;
+    private javax.swing.JTextField alias1;
     private javax.swing.JTextField apodo;
+    private javax.swing.JTextField apodo1;
     private javax.swing.JTree arbol;
     private javax.swing.ButtonGroup armas_Alemanes;
     private javax.swing.ButtonGroup armas_Alumnos;
     private javax.swing.ButtonGroup armas_Rusos;
     private javax.swing.JTextField casta;
+    private javax.swing.JTextField casta1;
     private javax.swing.JTextField cuenta;
+    private javax.swing.JTextField cuenta1;
     private javax.swing.JRadioButton discos;
+    private javax.swing.JRadioButton discos1;
     private javax.swing.JTextField ealemanes;
+    private javax.swing.JTextField ealemanes1;
     private javax.swing.JTextField ealumnos;
+    private javax.swing.JTextField ealumnos1;
     private javax.swing.JTextField erusos;
+    private javax.swing.JTextField erusos1;
+    private javax.swing.JTextField ganador;
     private javax.swing.JTextField grado;
+    private javax.swing.JTextField grado1;
     private javax.swing.JTextField irusos;
+    private javax.swing.JTextField irusos1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton laptops;
+    private javax.swing.JRadioButton laptops1;
     private javax.swing.JRadioButton mg42;
+    private javax.swing.JRadioButton mg421;
     private javax.swing.JRadioButton mp40;
+    private javax.swing.JRadioButton mp401;
     private javax.swing.JTextField nrusos;
+    private javax.swing.JTextField nrusos1;
     private javax.swing.JRadioButton p38;
+    private javax.swing.JRadioButton p381;
     private javax.swing.JTextField ranrusos;
+    private javax.swing.JTextField ranrusos1;
     private javax.swing.JRadioButton revolvernavant;
+    private javax.swing.JRadioButton revolvernavant1;
     private javax.swing.JRadioButton rpg7;
+    private javax.swing.JRadioButton rpg71;
     private javax.swing.JRadioButton wii;
+    private javax.swing.JRadioButton wii1;
     // End of variables declaration//GEN-END:variables
 ArrayList rusos = new ArrayList();
     ArrayList alemanes = new ArrayList();
     ArrayList alumnos = new ArrayList();
     ArrayList caidos = new ArrayList();
+    //DefaultMutableTreeNode nodo_seleccionado;
 }
